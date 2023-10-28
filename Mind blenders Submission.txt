@@ -1,0 +1,81 @@
+﻿NAME-PRATIK BHAGWAN PATIL
+ROLL NO-230944520060 
+
+
+1) There are 25 horses. We have to find out the fastest 3 horses. In one race maximum 5 horses can run. How many such races are required in minimum to get the result?
+
+
+a) 17
+
+
+b) 20
+
+
+c) 25
+
+
+d) 15
+
+
+answer : 7th race will be answer 
+
+
+2) If all the 6 are replaced by 9, then the algebraic sum of all the numbers from 1 to 100(both inclusive) varies by
+ 
+Answer :Sum of 100 numbers is 5050
+
+
+And 3,13,23,43,53,63,73,83,93 replaced then by replacement of 9 numbers we get= 54 addition
+and 30 to 39 except 33 all numbers get replaced by 60 so there is addition of =540
+And  33 replaced by 99 so we get =66 additionally
+So we get 5050+54+540+66= 5710
+So variation will be 
+5710-5050 
+=660
+
+
+3) What could be the maximum value of Q in the following equation?
+
+
+5P9 + 3R7+ 2Q8 = 1114
+
+
+a) 10
+
+
+b) 12
+
+
+c) 15
+
+
+d) 9
+
+
+Answer :option d)9
+explanation: to get max value of Q we need that first two number must be minimum.For that we should put that value of P and R as minimum so we put P=0 and R=0
+so by putting that values we get eq.
+509+307+2Q8=1114
+2Q8=1114-509-307
+2Q8=298
+so we get max value of Q as 9. 
+
+
+
+
+4) The sum of two even numbers and odd number is: 
+
+
+a) Odd
+
+
+ b) Even
+
+
+c) Either Odd or Even
+
+
+d) Prime Number
+
+
+Answer : option a)odd

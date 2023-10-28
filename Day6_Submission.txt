@@ -1,0 +1,487 @@
+NAME-PRATIK BHAGWAN PATIL
+ROLL NO-230944520060
+
+Q shape1
+package dev;
+
+/**
+ * @author PRATIK
+ *
+ */
+public interface shape
+{
+	/**
+	 * abstract draw
+	 */
+	void draw();
+}
+
+package dev;
+
+/**
+ * @author PRATIK
+ *
+ */
+public class Circle implements shape
+{
+	public void draw()
+	{
+		System.out.println("draw circle");
+	}
+}
+
+/**
+ * 
+ */
+package dev;
+
+/**
+ * @author PRATIK
+ *
+ */
+public class Rectangle implements shape 
+	{
+		public void draw()
+		{
+			System.out.println("draw rectangle");
+		}
+	}
+
+package dev;
+
+/**
+ * @author PRATIK
+ *
+ */
+public class Triangle implements shape
+{
+    public void draw()
+    {
+    	System.out.println("draw triangle");
+    }
+}
+
+import dev.shape;
+import dev.Circle;
+import dev.Rectangle;
+import dev.Triangle;
+public class ShapeDemo {
+
+	public static void main(String[] args) 
+	{
+       shape arr[]=new shape[3];
+       arr[0]=new Circle();
+       arr[1]=new Triangle();
+       arr[2]=new Rectangle();
+       
+       for(int i=0;i<arr.length;i++)
+       {
+    	   arr[i].draw();
+       }
+	}
+
+}
+
+
+Q Interface1
+package trial;
+
+interface MouseHandler
+{
+	void mouseClicked();
+	void mousePressed();
+	void mouseReleased();
+}
+interface WindowHandler
+{
+	void windowClosing();
+	void windowClosed();
+}
+
+class WindowGUIApp implements MouseHandler,WindowHandler
+{
+	public void mouseClicked()
+	{
+		System.out.println("click mouse");
+	}
+	public void mousePressed()
+	{
+		System.out.println("press mouse");
+	}
+	public void mouseReleased()
+	{
+		System.out.println("release mouse");
+		
+	}
+	public void windowClosing()
+	{
+		System.out.println("close window");
+	}
+	public void windowClosed()
+	{
+		System.out.println("window is closed");
+	}
+	
+}
+public class MyClass1
+{
+	public static void main(String args[])
+	{
+		WindowGUIApp win =new WindowGUIApp();
+		win.mouseClicked();
+		win.mousePressed();
+		win.mouseReleased();
+		win.windowClosing();
+		win.windowClosed();
+		
+	}
+}
+
+
+
+Q Interface2
+/**
+ * 
+ */
+package interface2;
+
+/**
+ * @author PRATIK
+ *
+ */
+/**
+ * @author PRATIK
+ *
+ */
+public interface PersistenceMechanism 
+{
+	/**
+	 * @param ref of String
+	 */
+	void writeData(String ref);
+	
+	/**
+	 * @return String
+	 */
+	String readData();
+}
+/**
+ * 
+ */
+package interface2;
+
+/**
+ * @author PRATIK
+ *
+ */
+
+public class FileSystem implements PersistenceMechanism
+{
+	String ref;
+	public void writeData(String ref)
+	{
+		this.ref=ref;
+	}
+	public String readData()
+	{
+		return ref;
+	}
+}
+/**
+ * 
+ */
+package interface2;
+
+/**
+ * @author PRATIK
+ *
+ */
+public class DatabaseSystem implements PersistenceMechanism
+{
+	String ref;
+	public void writeData(String ref)
+	{
+		this.ref=ref;
+	}
+	public String readData()
+	{
+		return ref;
+	}
+}
+/**
+ * 
+ */
+package interface2;
+
+/**
+ * @author PRATIK
+ *
+ */
+
+public class BigdataSystem implements PersistenceMechanism
+{
+	String ref;
+	public void writeData(String ref)
+	{
+		this.ref=ref;
+	}
+	public String readData()
+	{
+		return ref;
+	}
+}
+/**
+ * 
+ */
+/**
+ * 
+ */
+package interface2client;
+
+import interface2.PersistenceMechanism;
+import interface2.BigdataSystem;
+import interface2.DatabaseSystem;
+import interface2.FileSystem;
+
+/**
+ * @author PRATIK
+ *
+ */
+public class Demo {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+				PersistenceMechanism arr[]=new PersistenceMechanism[3];
+				arr[0]=new BigdataSystem();
+				arr[1]=new DatabaseSystem();
+				arr[2]=new FileSystem();
+				
+				
+				for (int i=0;i<arr.length;i++)
+				{
+					if(arr[i] instanceof BigdataSystem)
+					{
+						arr[i].writeData("BigData");
+						String ref =arr[i].readData();
+						System.out.println(ref);
+					}
+					
+				}
+			
+	}
+
+}
+
+Q Interface3
+/**
+ * 
+ */
+package interface3;
+
+/**
+ * @author PRATIK
+ *
+ */
+
+public interface Vehicle 
+{
+	/**
+	 * @param a returns void
+	 */
+	void changeGear(int a); 
+	
+    /**
+     * @param a returns void
+     */
+    void speedUp(int a); 
+    /**
+     * @param a returns void
+     */
+    void applyBrakes(int a); 
+}
+
+package interface3client;
+
+/**
+ * 
+ */
+import interface3.Vehicle;
+
+/**
+ * @author PRATIK
+ *
+ */
+public class TwoWheeler implements Vehicle
+{
+	int ref;
+	int sp;
+	public void changeGear(int a)
+	{
+		this.ref=a;
+		System.out.println("Gear changed to "+ref);
+	}
+	public void speedUp(int a)
+	{
+		this.sp=a;
+        System.out.println("Speed is "+sp);
+	}
+	public void applyBrakes(int a)
+	{
+		System.out.println("Brakes applied");
+	}
+}
+
+/**
+ * 
+ */
+package interface3client;
+
+import interface3.Vehicle;
+/**
+ * 
+ */
+
+/**
+ * @author PRATIK
+ *
+ */
+public class FourWheeler implements Vehicle
+{
+	int ref;
+	int sp;
+	public void changeGear(int a)
+	{
+		this.ref=a;
+		System.out.println("Gear changed to "+ref);
+	}
+	public void speedUp(int a)
+	{
+         this.sp=a;
+         System.out.println("Speed is "+sp);
+	}
+	public void applyBrakes(int a)
+	{
+		System.out.println("Brakes applied");
+	}
+}
+
+
+
+
+
+/**
+ * 
+ */
+package interface3client;
+
+import interface3.Vehicle;
+ 
+/**
+ * @author PRATIK
+ *
+ */
+public class Demo {
+
+	/**
+	 * @param args
+	 * @return 
+	 */
+	static void perform(Vehicle ref)
+	{
+		ref.applyBrakes(3);
+		ref.changeGear(4);
+		ref.speedUp(80);
+	}
+	
+	public static void main(String[] args) 
+	{
+		perform(new TwoWheeler());
+		perform(new FourWheeler());
+
+	}
+
+}
+
+
+Q Weapon
+package Weaponpack;
+
+	abstract class Weapon
+	{
+		public void attack()
+		{
+		}
+	}
+    class Sword extends Weapon
+	{
+		public void attack()
+		{
+			System.out.println("attack with sword");
+		}
+	}
+   class Bomb extends Weapon
+	{
+		public void attack()
+		{
+			System.out.println("attack with bomb");
+		}
+	}
+	class Gun extends Weapon
+	{
+		public void attack()
+		{
+			System.out.println("attack with Gun");
+		}
+		public void fillBullets()
+		{
+			System.out.println("filling bullets");
+		}
+	}
+
+	class Soldier
+	{
+	
+		public void fight(Weapon ref)
+		{
+			ref.attack();
+			 
+			/*
+			 * Gun ref1 = new Gun(); ref1.fillBullets();
+			 */
+			
+			/*
+			 * Gun ref1 = (Gun)ref; ref1.fillBullets();   //downcasting
+			 */
+			
+			if(ref instanceof Gun)
+			{
+				Gun ref1 = (Gun)ref; 
+				ref1.fillBullets();
+			}	
+		}
+
+	}
+	
+	public class WeaponDemo
+	{
+		public static void main(String args[])
+		{
+			Soldier s1=new Soldier();
+			s1.fight(new Gun());
+			s1.fight(new Sword());
+		}
+	}
+
+
+
+
+
+
+
+
+

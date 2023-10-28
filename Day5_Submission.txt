@@ -1,0 +1,518 @@
+230944520060
+Pratik Patil
+
+1) Create a multi-level inheritance , instantiate the child class and observe constructor invocation.Also show, if needed how will u invoke parent class constructor from child class ?
+
+package Practical;
+
+/*
+ * super() is used to access private member function and constructor inside the parent class.
+ * while invoking parent class constructor super() must be declared in first line.
+ * */
+
+class Base20
+{
+	Base20()
+	{
+		System.out.println("inside no-arg Base....");
+	}
+	Base20(int s)
+	{
+		System.out.println("inside  Parameterized Base....");
+	}
+}
+class Sub20 extends Base20
+{
+	Sub20()
+	{
+		super(10);
+		System.out.println("inside no-arg Sub20....");
+	}
+	Sub20(int s)
+	{
+		super(24);
+		System.out.println("inside parameterized Sub20....");
+	}
+}
+class Sub21 extends Sub20
+{
+	Sub21()
+	{
+		super(30);
+		System.out.println("inside no-arg Sub21....");
+	}
+	Sub21(int s)
+	{
+		//super(30);
+		System.out.println("inside parameterized Sub21....");
+	}
+}
+class Sub23 extends Sub21
+{
+	Sub23()
+	{
+		super();
+		System.out.println("inside no-arg Sub23....");
+	}
+}
+
+public class Inheritance_MultiLevel1 {
+
+	public static void main(String[] args) {
+		Sub21 s=new Sub23();
+	}
+
+}
+
+
+/* here when we create the child class object then the control goes to the child class constructor from that,
+	control goes to its parent class constructor. if parent class inherited by grant-parent class then
+	the control goes to the parent class constructor invoke it and then invoke all the child and grand-child
+	 class constructor accordingly....
+*/
+
+2) create a class "Vehicle", define a method "public void start()" in it. From this class derive a class FourWheeler. How will u override "start()" method of parent class ?
+
+package Practical;
+
+class Vehical1
+{
+	public void start()
+	{
+		System.out.println("starting the vehical.....");
+	}
+}
+
+class FourWheeler1 extends Vehical1
+{
+	public void start()
+	{
+		//super.start();
+		System.out.println("Four Wheeler is startiing....");
+		//super.start();
+	}
+}
+
+public class VehicalDemo1 {
+
+	public static void main(String[] args) {
+		Vehical w=new FourWheeler();
+		w.start();
+	}
+
+}
+
+3) Go for Hierarchical inheritance, create instances of child class and observe constructor invocation.
+
+class Base20
+{
+	Base20()
+	{
+		System.out.println("inside no-arg Base....");
+	}
+	Base20(int s)
+	{
+		System.out.println("inside  Parameterized Base....");
+	}
+}
+class Sub20 extends Base20
+{
+	Sub20()
+	{
+		super(10);
+		System.out.println("inside no-arg Sub20....");
+	}
+	Sub20(int s)
+	{
+		super(24);
+		System.out.println("inside parameterized Sub20....");
+	}
+}
+class Sub21 extends Base20
+{
+	Sub21()
+	{
+		super(30);
+		System.out.println("inside no-arg Sub21....");
+	}
+	Sub21(int s)
+	{
+		//super(30);
+		System.out.println("inside parameterized Sub21....");
+	}
+}
+class Sub23 extends Base20
+{
+	Sub23()
+	{
+		super();
+		System.out.println("inside no-arg Sub23....");
+	}
+}
+
+public class Inheritance_MultiLevel1 {
+
+	public static void main(String[] args) {
+		Sub23 s23=new Sub23();
+		
+		Sub21 s21=new Sub21();
+		
+		Sub20 s2=new Sub20();
+	}
+
+}
+
+
+/* here when we create the child class object then the control goes to the child class constructor from that,
+	control goes to its parent class constructor. if parent class inherited by grant-parent class then
+	the control goes to the parent class constructor invoke it and then invoke all the child and grand-child
+	 class constructor accordingly....
+*/
+
+4) Create a class "Top1" with "disp1()" method.
+From this class Derive "Bottom1", "Bottom2" and "Bottom3" classes ,override the "disp1()".
+Now show how will u achieve dynamic polymorphism.
+
+package Practical;
+
+class Top
+{
+	public void display()
+	{
+		// System.out.println("inside the Top class....");
+	}
+}
+class Bottom1 extends Top
+{
+	public void display()
+	{
+		System.out.println("inside the  class Bottom1....");
+	}
+}
+class Bottom2 extends Top
+{
+	public void display()
+	{
+		System.out.println("inside the  class Bottom2....");
+	}
+}
+class Bottom3 extends Top
+{
+	public void display()
+	{
+		System.out.println("inside the  class Bottom3....");
+	}
+}
+public class Dynamic_Polymorphism1 {
+
+//	static void perform(Top ref)
+//	{
+//		ref.display();
+//	}
+	
+	public static void main(String[] args) {
+		
+//		perform(new Bottom1());
+//		perform(new Bottom2());
+//		perform(new Bottom3());
+	
+		Top t[]=new Top[3];
+		t[0]=new Bottom1();
+		t[1]=new Bottom2();
+		t[2]=new Bottom3();
+		
+		for(int i=0;i<t.length;i++)
+		{
+			t[i].display();
+		}
+	}
+
+}
+
+5) create abstract class Shape. declare "draw()" function as abstract. From this class define "Triangle","Polygon" and "Circle" .
+create an array of Shape having 3 elements.
+store child objects into this array . and call their draw function.
+
+package Practical;
+
+abstract class Shape11
+{
+	abstract void draw();
+}
+class Triangle11 extends Shape11
+{
+	public void draw()
+	{
+		System.out.println("Drawing Triangle....");
+	}
+}
+class Polygon11 extends Shape11
+{
+	public void draw()
+	{
+		System.out.println("Drawing Polygon....");
+	}
+}
+class Circle11 extends Shape11
+{
+	public void draw()
+	{
+		System.out.println("Drawing Circle....");
+	}
+}
+public class AbstractDemo1 {
+	static void perform(Shape11 ref[])
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		Shape11 s[]=new Shape11[3];
+		
+		s[0]=new Circle11();
+		s[1]=new Triangle11();
+		s[2]=new Polygon11();
+		
+		for(int i=0;i<s.length;i++)
+		{
+			s[i].draw();
+		}
+	}
+
+}
+	
+
+6) Define interface "A" with "disp1()" method.
+Derive from "A", interface "B" with "disp2" method.
+Derive class "C" , from "B".
+Instantiate class "C" and call its members as well as derived from parent interfaces.
+
+package Practical;
+
+interface A1
+{
+	public int num1=10;
+	public int  num2=24;
+	
+	public void display1();
+}
+
+interface B1 extends A1
+{
+	public int num3=1024;
+	public int num4=2410;
+	
+	public void display2();
+}
+
+class C1 implements A1,B1
+{
+	public void display1()
+	{
+		System.out.println("Inside the interface A1 display()....");
+		System.out.println("num1 :"+num1+"\t"+"num2 :"+num2);
+	}
+	public void display2()
+	{
+		System.out.println("Inside the interface B1 display()....");
+		System.out.println("num3 :"+num3+"\t"+"num4 :"+num4);
+	}
+	
+}
+
+public class InterfaceDemo3 {
+
+	public static void main(String[] args) {
+		C1 c=new C1();
+		c.display1();
+		c.display2();
+	}
+
+}
+
+
+7) Define class "Parent1" with some data.
+Define interface "Parent2" with some methods.
+Derive a class "Child" from "Parent1" and "Parent2", instantiate it and call the members.
+
+package Practical;
+
+class Parent1
+{
+	public void show()
+	{
+		System.out.println("inside the Show() menthod of Parent11 class....");
+	}
+}
+interface Parent2
+{
+	public void display();
+}
+
+class Child1 extends Parent1 implements Parent2
+{
+	public void display()
+	{
+		System.out.println("Child class derived from Parent1 class and implements Parent2 interface....");
+	}
+}
+
+public class InterfaceDemo1 {
+
+	public static void main(String[] args) {
+		Child1 ch1=new Child1();
+		ch1.display();
+		ch1.show();
+	}
+
+}
+
+8) Define a class "base1" with only parameterized constructor.
+Derive a class "sub1" from "base1". This class should have following constructors
+	a) Default
+	b) one parameter
+	c) two parameter
+Now try to instantiate "sub1" , using any of the above mentioned constructors.
+
+package Practical;
+//
+//class Parent22
+//{
+//	Parent22(int s)
+//	{
+//		System.out.println("inside Parent parameterized constructor....");
+//	}
+//}
+//
+//class Child22 extends Parent22
+//{
+//	Child22()
+//	{
+//		super(10);
+//		System.out.println("inside Child no-arg constructor....");
+//	}
+//	Child22(int s)
+//	{
+//		super(24);
+//		System.out.println("inside Child one parameterized constructor....");
+//	}
+//	Child22(int s1, int s2)
+//	{
+//		super(30);
+//		System.out.println("inside Child two parameterized  constructor....");
+//	}
+//}
+//
+//public class Assignment5_Q8 {
+//
+//	public static void main(String[] args) {
+//		Parent22 p1=new Child22();
+//		
+//		Parent22 ch2=new Child22(10);
+//		
+//		Parent22 ch3=new Child22(10,24);
+//	}
+//
+//}
+
+
+class Parent22
+{
+	private int num;
+	Parent22(int s)
+	{
+		System.out.println("Inside Parent parameterized constructor....");
+		this.num=s;
+		System.out.println("num :"+num);
+	}
+}
+
+class Child22 extends Parent22
+{
+	public int num1=10;
+	public int num2=24;
+	
+	Child22()
+	{
+		super(10);
+		System.out.println("Inside Child no-arg constructor....");
+		System.out.println("num1 :"+num1+"\t"+"num2 :"+num2);
+	}
+	Child22(int s)
+	{
+		super(24);
+		System.out.println("Inside Child  one paramterized constructor....");
+		this.num1=s;
+		System.out.println("num1 :"+num1+"\t"+"num2 :"+num2);
+	}
+	Child22(int s1,int s2)
+	{
+		super(1024);
+		System.out.println("Inside Child two parameterized constructor....");
+		this.num1=s1;
+		this.num2=s2;
+		System.out.println("num1 :"+num1+"\t"+"num2 :"+num2);
+	}
+}
+
+public class Assignment5_Q8 {
+
+	public static void main(String[] args) {
+		Parent22 p1=new Child22();
+		
+		Parent22 ch2=new Child22(10);
+		
+		Parent22 ch3=new Child22(100,240);
+	}
+
+}
+
+9) create interface "Game" , have an abstract method "play()". from this interface implements classes like "Cricket" , "FootBall" and "Tennis".
+Now Define one more class public class Demo with main function.
+In this class have a static method "perform" which will take interface reference as parameter.inside "perform()" see to it that any child object passed ,its "play()" method should be invoked. Call "perform()" method from main function.
+
+package Practical;
+
+interface Game
+{
+	public void play();
+}
+
+class Cricket implements Game
+{
+	public void play()
+	{
+		System.out.println("playing cricket....");
+	}
+}
+
+class Football implements Game
+{
+	public void play()
+	{
+		System.out.println("playing football....");
+	}
+}
+
+class Tennis implements Game
+{
+	public void play()
+	{
+		System.out.println("playing tennis....");
+	}
+}
+
+public class InterfaceDemo2 {
+	static void perform(Game ref)
+	{
+		ref.play();
+	}
+	public static void main(String[] args) {
+		perform(new Cricket());
+		
+		perform(new Football());
+		
+		perform(new Tennis());
+	}
+
+}
